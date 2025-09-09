@@ -60,7 +60,7 @@ function ProjectVideo({ src }: ProjectVideoProps) {
         />
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
+        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-white p-1 ring-1 ring-brand-200/60 ring-inset dark:bg-zinc-950 dark:ring-brand-400/40">
           <video
             src={src}
             autoPlay
@@ -98,7 +98,7 @@ function MagneticSocialLink({
     <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
       <a
         href={link}
-        className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+        className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-brand-50 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-brand-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-brand-500"
       >
         {children}
         <svg
@@ -142,15 +142,20 @@ export default function Personal() {
               Focused on developing ML models and AI applications.
             </p>
           </div>
-          <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full ring-2 ring-zinc-200/50 dark:ring-zinc-800/50">
-            <Image
-              src="/images/avatar.jpeg" 
-              alt="Nguyễn Đặng Quang Phúc"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              priority
-            />
+          <div className="relative h-40 w-40 shrink-0">
+            {/* Rotating pastel LED ring */}
+            <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,theme(colors.brand.400),theme(colors.brand.200),theme(colors.brand.600),theme(colors.brand.400))] animate-[spin_4s_linear_infinite]" />
+            {/* Avatar container (cuts out inner area to form the ring) */}
+            <div className="absolute inset-[5px] overflow-hidden rounded-full bg-white ring-1 ring-brand-200/60 dark:bg-zinc-950 dark:ring-brand-400/30">
+              <Image
+                src="/images/avatar.jpeg"
+                alt="Nguyễn Đặng Quang Phúc"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
+              />
+            </div>
           </div>
         </div>
       </motion.section>
@@ -160,12 +165,12 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">🚀 Projects | プロジェクト</h3>
+        <h3 className="mb-5 text-lg font-medium text-brand-700 dark:text-brand-300">🚀 Projects | プロジェクト</h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PROJECTS.map((project) => (
             <div key={project.name} className="space-y-2">
               {project.video && ( // Chỉ render khi có video
-                <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                <div className="relative rounded-2xl bg-brand-50/40 p-1 ring-1 ring-brand-200/60 ring-inset dark:bg-zinc-900/30 dark:ring-brand-400/40">
                   <ProjectVideo src={project.video} />
                 </div>
               )}
@@ -176,7 +181,7 @@ export default function Personal() {
                   target="_blank"
                 >
                   {project.name}
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
+                  <span className="absolute bottom-0.5 left-0 block h-[2px] w-full max-w-0 bg-brand-600 transition-all duration-200 group-hover:max-w-full dark:bg-brand-400"></span>
                 </a>
                 <p className="text-base text-zinc-600 dark:text-zinc-400">
                   {project.description}
@@ -192,9 +197,9 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">📜 Certifications | 資格</h3>
+        <h3 className="mb-5 text-lg font-medium text-brand-700 dark:text-brand-300">📜 Certifications | 資格</h3>
         <div className="flex flex-col space-y-2">
-          <div className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-4 dark:bg-zinc-600/30">
+          <div className="relative overflow-hidden rounded-2xl bg-brand-50/60 p-4 ring-1 ring-brand-200/60 dark:bg-zinc-900/30 dark:ring-brand-400/30">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <h4 className="font-normal dark:text-zinc-100">Japanese Language</h4>
@@ -214,7 +219,7 @@ export default function Personal() {
           </div>
           
           {/* CODELEARN Certifications */}
-          <div className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-4 dark:bg-zinc-600/30">
+          <div className="relative overflow-hidden rounded-2xl bg-brand-50/60 p-4 ring-1 ring-brand-200/60 dark:bg-zinc-900/30 dark:ring-brand-400/30">
             <h4 className="font-normal dark:text-zinc-100">CODELEARN Certifications</h4>
             <ul className="mt-2 text-zinc-600 dark:text-zinc-400">
               <li>Computer Networks Fundamentals (May 2021)</li>
@@ -231,7 +236,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">🧰 Tech Skills | 技術スタック</h3>
+        <h3 className="mb-5 text-lg font-medium text-brand-700 dark:text-brand-300">🧰 Tech Skills | 技術スタック</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="space-y-4">
             <div>
@@ -289,7 +294,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">📫 Connect | 連絡先</h3>
+        <h3 className="mb-5 text-lg font-medium text-brand-700 dark:text-brand-300">📫 Connect | 連絡先</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
           Feel free to contact me at{' '}
           <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>

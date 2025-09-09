@@ -1,0 +1,16 @@
+{
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore",
+  // Associate CSS files with Tailwind syntax highlighting/intellisense
+  "files.associations": {
+    "app/globals.css": "tailwindcss",
+    "**/*.css": "tailwindcss"
+  },
+  // Helpful Tailwind editor behaviors
+  "tailwindCSS.emmetCompletions": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  }
+}
+

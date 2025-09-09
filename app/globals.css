@@ -2,6 +2,20 @@
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:is(.dark *));
 
+/* Pastel Blue brand palette */
+@theme {
+  --color-brand-50: #f0f7ff;
+  --color-brand-100: #e3f0ff;
+  --color-brand-200: #cfe6ff;
+  --color-brand-300: #b7d9ff;
+  --color-brand-400: #8ec4ff;
+  --color-brand-500: #66afff;
+  --color-brand-600: #3d99f6;
+  --color-brand-700: #2b7fd2;
+  --color-brand-800: #2366a8;
+  --color-brand-900: #1e4f83;
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
